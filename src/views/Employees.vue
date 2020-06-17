@@ -1,8 +1,7 @@
 <template>
-  <v-card class="employees">
-    <v-card-title>
-      Employees
-    </v-card-title>
+  <div class="employees">
+    <h1 class="text-h4 mb-3">Employees</h1>
+    <p class="text-subtitle-1">This tool is designed for HR Managers (and their teams) to be able to find employees by their manager, as well as view useful summarised data of their employee demographics.</p>
 
     <v-data-table
       :headers="headers"
@@ -10,14 +9,18 @@
       :items-per-page="10"
       :loading="!employees.length"
       item-key="id"
-      class="pa-5"
     >
       <template v-slot:top>
+        <h2 class="text-subtitle-2">Filters</h2>
         <v-container fluid>
           <v-row>
-            <v-col cols="6">
-              <v-row class="pa-6">
-                <v-select
+            <v-col cols="pr-6">
+              <v-row>
+                <template v-if="!employees.length">
+                  <v-skeleton-loader class="mx-auto" type="table-cell" />
+                </template>
+
+                <v-select v-else
                   :items="managers"
                   :clearable="true"
                   filled
@@ -30,8 +33,12 @@
             </v-col>
 
             <v-col cols="6">
-              <v-row class="pa-6">
-                <v-select
+              <v-row class="pl-6">
+                <template v-if="!employees.length">
+                  <v-skeleton-loader class="mx-auto" type="table-cell" />
+                </template>
+
+                <v-select v-else
                   :items="offices"
                   :clearable="true"
                   filled
@@ -45,7 +52,7 @@
       </template>
 
       <template v-show="!employees.length" v-slot:progress>
-        <v-skeleton-loader v-for="row in 10" :key="`table-row-${row}`" class="mx-auto" type="table-row" />
+        <v-skeleton-loader class="mx-auto" type="table-row@10" />
       </template>
 
       <template v-slot:item.dateOfBirth="{ item }">
@@ -64,7 +71,7 @@
         <v-img height="48" width="48" :src="item.avatarUrl" />
       </template>
     </v-data-table>
-  </v-card>
+  </div>
 </template>
 
 <script>

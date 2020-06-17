@@ -1,13 +1,13 @@
 <template>
   <div class="navigation">
-    <v-app-bar width="100%" class="hidden-md-and-up" color="primary" dark>
+    <v-app-bar width="100%" class="hidden-lg-and-up" color="primary" dark>
         <v-icon @click.stop="drawer = !drawer" color="white">mdi-hamburger</v-icon>
         <img class="flex text-center ml-n5" :src="require('@/assets/logo-small.svg')" height="20" alt="Staff Circle logo" />
     </v-app-bar>
 
     <v-navigation-drawer
-      :fixed="$vuetify.breakpoint.smAndDown"
-      :permanent="$vuetify.breakpoint.mdAndUp"
+      :fixed="$vuetify.breakpoint.mdAndDown"
+      :permanent="$vuetify.breakpoint.lgAndUp"
       v-model="drawer"
       color="primary"
       width="320"

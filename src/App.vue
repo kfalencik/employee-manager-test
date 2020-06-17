@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <div class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.smAndDown}">
+    <div class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.mdAndDown}">
       <Navigation />
 
       <v-main>
-        <div class="pa-4">
+        <div class="pa-4 py-md-8 px-md-10">
           <router-view />
         </div>
       </v-main>
