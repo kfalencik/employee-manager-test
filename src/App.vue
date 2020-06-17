@@ -19,6 +19,10 @@ export default {
   name: 'App',
   components: {
     Navigation
+  },
+  mounted () {
+    // Get employee data once app has mounted
+    this.$store.dispatch('fetchEmployeeData')
   }
 }
 </script>

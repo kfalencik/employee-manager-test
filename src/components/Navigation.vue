@@ -6,16 +6,18 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      class="primary"
       :fixed="$vuetify.breakpoint.smAndDown"
       :permanent="$vuetify.breakpoint.mdAndUp"
       v-model="drawer"
+      color="primary"
       width="320"
       dark
       left
     >
 
-      <router-link to="/"><img :src="require('@/assets/logo.svg')" height="70" class="d-block my-4 mx-auto" alt="Staff Circle logo" /></router-link>
+      <router-link to="/">
+        <img :src="require('@/assets/logo.svg')" height="70" class="d-block my-4 mx-auto" alt="Staff Circle logo" />
+      </router-link>
 
       <v-list tag="nav">
         <v-list-item
