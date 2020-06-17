@@ -9,9 +9,11 @@
       :items-per-page="10"
       :loading="!employees.length"
       item-key="id"
+      mobile-breakpoint="960"
+
     >
       <template v-slot:top>
-        <h2 class="text-subtitle-2">Filters</h2>
+        <h2 class="text-subtitle-2 mt-10">Filters</h2>
         <v-container fluid>
           <v-row>
             <v-col cols="pr-6">
