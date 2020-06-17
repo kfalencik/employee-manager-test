@@ -24,6 +24,7 @@ export default {
 <style lang="scss">
   .pie-piece {
     position: absolute;
+    right: 0;
   }
 
   .v-progress-circular__underlay {

@@ -1,7 +1,7 @@
 <template>
   <div class="employees">
     <h1 class="text-h4 mb-3">Employees</h1>
-    <p class="text-subtitle-1">This tool is designed for HR Managers (and their teams) to be able to find employees by their manager, as well as view useful summarised data of their employee demographics.</p>
+    <p class="text-subtitle-1">A sortable and filterable list of employees.</p>
 
     <v-data-table
       :headers="headers"

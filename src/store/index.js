@@ -14,15 +14,13 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchEmployeeData (context) {
-      await setTimeout(() => {
-        fetch('https://api.jsonbin.io/b/5e8f3cde8e85c84370132fbd/6').then(response => {
-          return response.json()
-        }).then(data => {
-          context.commit('setEmployeeData', data)
-        }).catch(error => {
-          console.log(error)
-        })
-      }, 3000)
+      await fetch('https://api.jsonbin.io/b/5e8f3cde8e85c84370132fbd/6').then(response => {
+        return response.json()
+      }).then(data => {
+        context.commit('setEmployeeData', data)
+      }).catch(error => {
+        console.log(error)
+      })
     }
   }
 })
