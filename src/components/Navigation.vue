@@ -1,7 +1,7 @@
 <template>
   <div class="navigation">
     <v-app-bar width="100%" class="hidden-md-and-up" color="primary" dark>
-        <v-icon @click.stop="drawer = !drawer" color="white">mdi-hamburger</v-icon>
+        <v-icon @click.stop="drawer = !drawer" color="white">mdi-menu</v-icon>
         <img class="flex text-center ml-n5" :src="require('@/assets/logo-small.svg')" height="20" alt="Staff Circle" />
     </v-app-bar>
 
