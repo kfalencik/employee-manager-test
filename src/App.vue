@@ -1,56 +1,24 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="secondary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="32"
-        />
+    <div class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.smAndDown}">
+      <Navigation />
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer />
-
-      <v-btn
-        href="https://github.com/StaffCircle/frontend-project"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">
-          Github
-        </span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <router-view />
-    </v-content>
+      <v-main>
+        <div class="pa-4">
+          <router-view />
+        </div>
+      </v-main>
+    </div>
   </v-app>
 </template>
 
 <script>
+import Navigation from '@/components/Navigation.vue'
+
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  })
+  components: {
+    Navigation
+  }
 }
 </script>
