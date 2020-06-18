@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <div class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.smAndDown}">
-      <Navigation />
+    <div app class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.smAndDown}">
+      <Navigation app />
 
-      <v-main app :style="{'width': $vuetify.breakpoint.mdAndUp ? 'calc(100% - 300px)' : '100%'}">
+      <v-main :style="{'width': $vuetify.breakpoint.mdAndUp ? 'calc(100% - 300px)' : '100%'}">
         <div class="pa-4 py-md-8 px-md-7 py-lg-8 px-lg-10">
           <template v-if="message">
             <Message :message="message.message" :type="message.type" />
