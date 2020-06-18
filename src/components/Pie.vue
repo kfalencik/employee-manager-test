@@ -2,18 +2,14 @@
   <v-card class="pie pa-6" v-if="data && size" :style="`min-width: ${size + 50}px`">
       <h2 :key="1" class="text-h6 text-center mb-4" v-if="title">{{title}}:</h2>
 
-      <v-fab-transition group>
-        <template v-if="animation">
-          <PiePiece v-for="(piece, index) in data"
-            :key="`pie-piece-${index}`"
-            :rotate="piece.rotate"
-            :size="size"
-            :value="piece.percentage"
-            :width="size / 2"
-            :color="piece.color"
-          />
-        </template>
-      </v-fab-transition>
+      <PiePiece v-for="(piece, index) in data"
+        :key="`pie-piece-${index}`"
+        :rotate="piece.rotate"
+        :size="size"
+        :value="piece.percentage"
+        :width="size / 2"
+        :color="piece.color"
+      />
 
       <div :key="2" class="pie__legend text-center mx" :style="`padding-top: ${size + 15}px;`">
         <ul class="pl-2">
@@ -35,20 +31,9 @@ import ColorSwatch from '@/components/ColorSwatch.vue'
 
 export default {
   props: ['data', 'size', 'title'],
-  data () {
-    return {
-      animation: false
-    }
-  },
   components: {
     PiePiece,
     ColorSwatch
-  },
-  mounted () {
-    const self = this
-    setTimeout(() => {
-      self.animation = true
-    }, 500)
   }
 }
 </script>

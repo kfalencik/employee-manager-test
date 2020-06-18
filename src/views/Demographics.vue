@@ -6,15 +6,24 @@
     <v-container fluid>
       <v-row align="center" justify="center">
         <v-col sm="6" lg="4" xl="3" cols="12">
-          <Pie :data="yearsOfService" title="Years of service" :size="260" v-if="yearsOfService.length" />
+          <v-fab-transition >
+            <Pie :data="yearsOfService" title="Years of service" :size="260" v-if="yearsOfService.length && animation" />
+            <v-skeleton-loader v-else class="mx-auto" type="card" />
+          </v-fab-transition>
         </v-col>
 
-        <v-col sm="6" lg="4" xl="3" cols="12">
-          <Pie :data="ageGroups" title="Age groups" :size="260" v-if="ageGroups.length" />
+        <v-col :key="2" sm="6" lg="4" xl="3" cols="12">
+          <v-fab-transition >
+            <Pie :data="ageGroups" title="Age groups" :size="260" v-if="ageGroups.length  && animation" />
+            <v-skeleton-loader v-else class="mx-auto" type="card" />
+          </v-fab-transition >
         </v-col>
 
-        <v-col sm="6" lg="4" xl="3" cols="12">
-          <Pie :data="howLongDidItTakeMe" title="How long did this take me" :size="260" />
+        <v-col :key="3" sm="6" lg="4" xl="3" cols="12">
+          <v-fab-transition >
+            <Pie :data="howLongDidItTakeMe" title="How long did this take me" :size="260" v-if="animation" />
+            <v-skeleton-loader v-else class="mx-auto" type="card" />
+          </v-fab-transition >
         </v-col>
       </v-row>
     </v-container>
@@ -29,6 +38,7 @@ export default {
   name: 'Demographics',
   data () {
     return {
+      animation: false,
       howLongDidItTakeMe: [
         {
           title: 'Seting up / Reading spec',
@@ -209,6 +219,12 @@ export default {
 
       return statistics
     }
+  },
+  mounted () {
+    const self = this
+    setTimeout(() => {
+      self.animation = true
+    }, 500)
   },
   components: {
     Pie
