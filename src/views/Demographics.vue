@@ -4,17 +4,17 @@
     <p class="text-subtitle-1">Diagrams showing employee demographics.</p>
 
     <v-container fluid>
-      <v-row>
-        <v-col md="6" lg="4" xl="3" cols="12">
-          <Pie :data="yearsOfService" title="Years of service" :size="300" v-if="yearsOfService.length" />
+      <v-row align="center" justify="center">
+        <v-col sm="6" lg="4" xl="3" cols="12">
+          <Pie :data="yearsOfService" title="Years of service" :size="260" v-if="yearsOfService.length" />
         </v-col>
 
-        <v-col md="6" lg="4" xl="3" cols="12">
-          <Pie :data="ageGroups" title="Age groups" :size="300" v-if="ageGroups.length" />
+        <v-col sm="6" lg="4" xl="3" cols="12">
+          <Pie :data="ageGroups" title="Age groups" :size="260" v-if="ageGroups.length" />
         </v-col>
 
-        <v-col md="6" lg="4" xl="3" cols="12">
-          <Pie :data="howLongDidItTakeMe" title="How long did this take me" :size="300" />
+        <v-col sm="6" lg="4" xl="3" cols="12">
+          <Pie :data="howLongDidItTakeMe" title="How long did this take me" :size="260" />
         </v-col>
       </v-row>
     </v-container>
@@ -226,3 +226,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .col-12 {
+    max-width: 400px;
+  }
+</style>
