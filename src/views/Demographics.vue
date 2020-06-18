@@ -222,7 +222,9 @@ export default {
   },
   mounted () {
     const self = this
+
     setTimeout(() => {
+      // Animate diagrams
       self.animation = true
     }, 500)
   },
@@ -231,12 +233,15 @@ export default {
   },
   methods: {
     percantage (value) {
+      // Calculate percentage of all employees
       return (value / this.employees.length) * 100
     },
     degrees (value) {
+      // Calculate rotation degree
       return (value / this.employees.length) * 360
     },
     getTimeDifference (date) {
+      // Calculate time difference between two dates in years
       return moment().diff(moment(date), 'years')
     }
   }

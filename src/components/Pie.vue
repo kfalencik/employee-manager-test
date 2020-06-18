@@ -18,7 +18,7 @@
             class="text-caption"
           >
           <ColorSwatch :color="piece.color" /> &nbsp;
-          <strong>{{piece.title}}</strong> -  {{piece.value}} ({{Math.round(piece.percentage)}}%)
+          <strong>{{piece.title}}</strong> - {{piece.value}} ({{Math.round(piece.percentage)}}%)
           </li>
         </ul>
       </div>
