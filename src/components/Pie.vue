@@ -1,6 +1,6 @@
 <template>
-  <v-card class="pie pa-6" v-if="data" :style="`width: ${size + 50}px`">
-      <h2 :key="1" class="text-h6 text-center">Years of service:</h2>
+  <v-card class="pie pa-6" v-if="data && size" :style="`width: ${size + 50}px`">
+      <h2 :key="1" class="text-h6 text-center" v-if="title">{{title}}:</h2>
 
       <v-fab-transition group>
         <template v-if="animation">
@@ -34,7 +34,7 @@ import PiePiece from '@/components/PiePiece.vue'
 import ColorSwatch from '@/components/ColorSwatch.vue'
 
 export default {
-  props: ['data', 'size'],
+  props: ['data', 'size', 'title'],
   data () {
     return {
       animation: false

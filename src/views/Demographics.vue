@@ -1,9 +1,19 @@
 <template>
   <div class="demographics">
     <h1 class="text-h4 mb-3">Demographics</h1>
-    <p class="text-subtitle-1">Diagram showing employee demographics.</p>
+    <p class="text-subtitle-1">Diagrams showing employee demographics.</p>
 
-    <Pie :data="demographics" :size="300" v-if="demographics.length" />
+    <v-container fluid>
+      <v-row>
+        <v-col md="6" lg="4" xl="3" cols="12">
+          <Pie :data="yearsOfService" title="Years of service" :size="300" v-if="yearsOfService.length" />
+        </v-col>
+
+        <v-col md="6" lg="4" xl="3" cols="12">
+          <Pie :data="ageGroups" title="Age groups" :size="300" v-if="ageGroups.length" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -17,7 +27,7 @@ export default {
     employees () {
       return this.$store.state.employees
     },
-    demographics () {
+    yearsOfService () {
       // Initial values
       let totalRotation = 0
       const statistics = []
@@ -84,6 +94,78 @@ export default {
         rotate: totalRotation,
         percentage: this.percantage(moreThanFiveYears.length),
         value: moreThanFiveYears.length,
+        color: '#4bc1ec'
+      })
+
+      return statistics
+    },
+    ageGroups () {
+      // Initial values
+      let totalRotation = 0
+      const statistics = []
+
+      // 1. 18-25
+      const ageGroup1 = this.employees.filter(employee => {
+        return this.getTimeDifference(employee.dateOfBirth) < 25
+      })
+
+      // Add statistic to array
+      statistics.push({
+        title: '18 - 25',
+        rotate: 0,
+        percentage: this.percantage(ageGroup1.length),
+        value: ageGroup1.length,
+        color: '#0c1b4d'
+      })
+
+      // Calculate rotation degree for the next value
+      totalRotation += this.degrees(ageGroup1.length)
+
+      // 2. 25-35
+      const ageGroup2 = this.employees.filter(employee => {
+        return this.getTimeDifference(employee.dateOfBirth) >= 25 && this.getTimeDifference(employee.dateOfBirth) < 35
+      })
+
+      // Add statistic to array
+      statistics.push({
+        title: '25 - 35',
+        rotate: totalRotation,
+        percentage: this.percantage(ageGroup2.length),
+        value: ageGroup2.length,
+        color: '#bc226b'
+      })
+
+      // Calculate rotation degree for the next value
+      totalRotation += this.degrees(ageGroup2.length)
+
+      // 3. 35-50
+      const ageGroup3 = this.employees.filter(employee => {
+        return this.getTimeDifference(employee.dateOfBirth) >= 35 && this.getTimeDifference(employee.dateOfBirth) < 50
+      })
+
+      // Add statistic to array
+      statistics.push({
+        title: '35 - 50',
+        rotate: totalRotation,
+        percentage: this.percantage(ageGroup3.length),
+        value: ageGroup3.length,
+        color: '#fbbf00'
+      })
+
+      // Calculate rotation degree for the next value
+      totalRotation += this.degrees(ageGroup3.length)
+
+      // 3. 50+
+      const ageGroup4 = this.employees.filter(employee => {
+        return this.getTimeDifference(employee.dateOfBirth) >= 50
+      })
+
+      // Add statistic to array
+      statistics.push({
+        title: '50+',
+        rotate: totalRotation,
+        percentage: this.percantage(ageGroup4.length),
+        value: ageGroup4.length,
         color: '#4bc1ec'
       })
 
