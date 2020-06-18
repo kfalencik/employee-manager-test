@@ -72,6 +72,10 @@
       <template v-slot:item.avatarUrl="{ item }">
         <v-img height="48" width="48" :src="item.avatarUrl" />
       </template>
+
+      <template v-slot:item.id="{ item }">
+        <router-link :to="`/employees/${item.id}`">See details</router-link>
+      </template>
     </v-data-table>
   </div>
 </template>
@@ -89,7 +93,8 @@ export default {
         { text: 'Manager', value: 'managerId', filter: this.managersFilter },
         { text: 'Email', value: 'email', sortable: false },
         { text: 'Date of Birth', value: 'dateOfBirth' },
-        { text: 'Start Date', value: 'startDate' }
+        { text: 'Start Date', value: 'startDate' },
+        { text: 'Details', value: 'id' }
       ],
       managersFilterValue: null,
       officesFilterValue: null
