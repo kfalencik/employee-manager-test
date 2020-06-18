@@ -48,8 +48,8 @@ export default {
       drawer: false,
       items: [
         { title: 'Home', icon: 'mdi-view-dashboard', route: '/' },
-        { title: 'Employees', icon: 'mdi-account-multiple', route: 'employees' },
-        { title: 'Demographics', icon: 'mdi-chart-pie', route: 'demographics' }
+        { title: 'Employees', icon: 'mdi-account-multiple', route: '/employees' },
+        { title: 'Demographics', icon: 'mdi-chart-pie', route: '/demographics' }
       ]
     }
   }
