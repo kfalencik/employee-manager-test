@@ -3,7 +3,7 @@
     <div class="d-flex fill-height" :class="{'flex-column': $vuetify.breakpoint.smAndDown}">
       <Navigation />
 
-      <v-main :style="{'width': $vuetify.breakpoint.mdAndUp ? 'calc(100% - 300px)' : '100%'}">
+      <v-content :style="{'width': $vuetify.breakpoint.mdAndUp ? 'calc(100% - 300px)' : '100%'}">
         <div class="pa-4 py-md-8 px-md-7 py-lg-8 px-lg-10">
           <template v-if="message">
             <Message :message="message.message" :type="message.type" />
@@ -11,7 +11,7 @@
 
           <router-view />
         </div>
-      </v-main>
+      </v-content>
     </div>
   </v-app>
 </template>
