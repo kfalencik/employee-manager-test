@@ -3,7 +3,7 @@
     <h1 class="text-h4 mb-3">Demographics</h1>
     <p class="text-subtitle-1">Diagram showing employee demographics.</p>
 
-    <Pie :data="demographics" v-if="demographics.length" />
+    <Pie :data="demographics" :size="300" v-if="demographics.length" />
   </div>
 </template>
 
