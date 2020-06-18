@@ -18,7 +18,6 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchEmployeeData (context) {
-
       // Fetch data from the API
       await fetch('https://api.jsonbin.io/b/5e8f3cde8e85c84370132fbd/6').then(response => {
         if (response.ok) {
