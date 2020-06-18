@@ -8,6 +8,10 @@
         Employee details
       </v-card-title>
 
+      <v-card-subtitle>
+        <router-link to="/employees">Go back to Employees</router-link>
+      </v-card-subtitle>
+
       <v-list-item v-for="(item, index) in employeeDetails" :key="`employee-details-${index}`">
         <v-list-item-content>
           <v-list-item-title>{{item.title}}</v-list-item-title>
