@@ -26,7 +26,6 @@ HR Managers (and their teams) need to be able to find employees by their manager
 5. Demographics statistics is a bit messy and hard to read. Would definitely like to refactor that
 
 ### Outro
-I have deployed this application on netlify and it can be accessed here - https://staff-circle-fe-task.netlify.app
 If you have any questions please don't hesistate to email me at - kfalenick@gmail.com
 
 Thank you!

@@ -3,7 +3,7 @@
     <h1 class="text-h4 mb-3">{{employee.fullName}} <img :src="employee.avatarUrl" height="48" :alt="employee.fullName" /></h1>
     <p class="text-subtitle-1"><strong>{{employee.role}}</strong> at {{employee.office}}</p>
 
-    <v-card>
+    <v-card v-if="animation">
       <v-card-title>
         Employee details
       </v-card-title>
@@ -18,8 +18,9 @@
           <v-list-item-subtitle>{{item.value}}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-
     </v-card>
+
+    <v-skeleton-loader v-else class="mx-auto" type="card" />
   </div>
 </template>
 
@@ -28,6 +29,11 @@ import moment from 'moment'
 
 export default {
   name: 'Employee',
+  data () {
+    return {
+      animation: false
+    }
+  },
   computed: {
     employeeId () {
       return this.$route.params.id
@@ -86,6 +92,14 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    const self = this
+
+    setTimeout(() => {
+      // Animate diagrams
+      self.animation = true
+    }, 1000)
   },
   methods: {
     managerFullName (id) {
