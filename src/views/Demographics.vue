@@ -12,6 +12,10 @@
         <v-col md="6" lg="4" xl="3" cols="12">
           <Pie :data="ageGroups" title="Age groups" :size="300" v-if="ageGroups.length" />
         </v-col>
+
+        <v-col md="6" lg="4" xl="3" cols="12">
+          <Pie :data="howLongDidItTakeMe" title="How long did this take me" :size="300" />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -23,6 +27,40 @@ import moment from 'moment'
 
 export default {
   name: 'Demographics',
+  data () {
+    return {
+      howLongDidItTakeMe: [
+        {
+          title: 'Seting up / Reading spec',
+          rotate: 0,
+          percentage: 10,
+          value: 1,
+          color: '#0c1b4d'
+        },
+        {
+          title: 'Employee table',
+          rotate: 0.1 * 360,
+          percentage: 35,
+          value: 3.5,
+          color: '#bc226b'
+        },
+        {
+          title: 'Demographics diagrams',
+          rotate: 0.45 * 360,
+          percentage: 25,
+          value: 2.5,
+          color: '#fbbf00'
+        },
+        {
+          title: 'Polishing and other',
+          rotate: 0.7 * 360,
+          percentage: 30,
+          value: 3,
+          color: '#4bc1ec'
+        }
+      ]
+    }
+  },
   computed: {
     employees () {
       return this.$store.state.employees
